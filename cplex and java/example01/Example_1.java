@@ -36,6 +36,7 @@ public class Example_1 {
 			num_expr.addTerm(-1,x);
 			constraints.add(cplex.addLe(num_expr,8));
 			
+			// display option
 			cplex.setParam(IloCplex.Param.Simplex.Display, 0);
 			
 			// solve
@@ -44,8 +45,8 @@ public class Example_1 {
 				System.out.println("x   = "+cplex.getValue(x));
 				System.out.println("y   = "+cplex.getValue(y));
 				for (int i=0;i<constraints.size();i++) {
-					System.out.println("dual   constraint "+(i+1)+" = "+cplex.getDual(constraints.get(i)));
-					System.out.println("salack constraint "+(i+1)+" = "+cplex.getSlack(constraints.get(i)));
+					System.out.println("dual constraint "+(i+1)+"  = "+cplex.getDual(constraints.get(i)));
+					System.out.println("slack constraint "+(i+1)+" = "+cplex.getSlack(constraints.get(i)));
 				}
 			}
 			else {
